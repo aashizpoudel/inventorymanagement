@@ -4,11 +4,12 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "electron_start": "electron .",
+    "express_start": "node express.js"
   },
   "author": "Aashiz Poudel",
   "license": "MIT",
   "dependencies": {
-    "electron": "^2.0.4"
+    "express": "^4.16.3"
   }
 }
