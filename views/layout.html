@@ -1,0 +1,23 @@
+<html>
+
+<!--include head.html -->
+{{> head}}
+<body>
+    <!-- include left-panel -->
+    {{> left_panel}}
+
+    <div id='right-panel' class='right-panel'>
+        <!--include header.html-->
+        {{> header}}
+        <!-- include breadcrumbs-->
+
+        <div class='content mt-3'>
+            <!-- include components -->
+            {{{body}}}
+        </div>
+    </div>
+
+    {{> scripts}}
+    <!-- include scripts -->
+</body>
+</html>
