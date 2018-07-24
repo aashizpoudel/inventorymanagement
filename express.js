@@ -24,7 +24,7 @@ app.get('/',function(req,res){
 });
 
 var router = express.Router();         
-require('./routes/inventory.model.route')(router); // configure routes for the inventory model
+require('./routes/myroutes')(router); // configure routes for the inventory model
 app.use('/api', router);
 
 
