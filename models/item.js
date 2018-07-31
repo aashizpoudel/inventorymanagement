@@ -9,7 +9,6 @@ var vendorSchema = new mongoose.Schema({
 });
 
 var itemSchema = new mongoose.Schema({
-	itemId:String,
 	itemName:String,
 	desc:String,
 	uom:String,

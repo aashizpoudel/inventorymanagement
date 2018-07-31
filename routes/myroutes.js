@@ -13,6 +13,29 @@ module.exports = function(router){
         res.render('create_item_form')
     })
     .post(function(req,res){
-
+        console.log(req.body);
+        Item.create({
+	itemName:req.body.item_name,
+	desc:req.body.description,
+	uom:req.body.unit_type,
+	cost:req.body.unit_cost,
+        }).then((s)=>{
+            console.log(s);
+           // console.log('posted');
+            res.send("posted!!");
+        }).catch((e)=>{
+           
+        })
+        
     });
+
+    router.route('/items/list').get(function(req,res){
+        Item.find(function(err, inventoryItems) {
+            if (err) {
+                res.send(err);
+            } 
+            
+            res.json(inventoryItems);
+        });
+    })
 }

@@ -4,7 +4,7 @@
             <strong class="card-title">Create Item Form</strong>
         </div>
         <div class="card-body">
-            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+            <form action="/items/create" method="post" enctype="application/x-www-form-urlencoded" class="form-horizontal">
 
                 
 
@@ -16,7 +16,7 @@
                         <label for="text-input" class=" form-control-label">Item Name</label>
                     </div>
                     <div class="col-12 col-md-9">
-                        <input id="text-input" name="text-input" placeholder="Enter Item Name" class="form-control" type="text">
+                        <input id="text-input" name="item_name" placeholder="Enter Item Name" class="form-control" type="text">
                     </div>
                 </div>
 
@@ -25,7 +25,7 @@
                         <label for="text-input" class=" form-control-label">Unit Type</label>
                     </div>
                     <div class="col-12 col-md-9">
-                        <input id="text-input" name="text-input" placeholder="Amount of quantity to be added" class="form-control" type="number">
+                        <input id="text-input" name="unit_type" placeholder="Type of unit" class="form-control" type="text">
                     </div>
                 </div>
 
@@ -34,7 +34,7 @@
                         <label for="cost" class=" form-control-label">Per Unit Cost</label>
                     </div>
                     <div class="col-12 col-md-9">
-                        <input id="text-input" name="cost" placeholder="Per Unit Cost" class="form-control" type="number">
+                        <input id="text-input" name="unit_cost" placeholder="Per Unit Cost" class="form-control" type="number">
                     </div>
                 </div>
 
@@ -44,7 +44,7 @@
                         <label for="description" class=" form-control-label">Description</label>
                     </div>
                     <div class="col-12 col-md-9">
-                        <textarea name="description" id="textarea-input" rows="5" placeholder="Enter Description" class="form-control"></textarea>
+                        <textarea name="description" id="item_description" rows="5" placeholder="Enter Description" class="form-control"></textarea>
                     </div>
                 </div>
 
