@@ -33,11 +33,11 @@ var inventorySchema = new mongoose.Schema({
 	children: Array
 })
 
-module.exports = mongoose.model('Item',itemSchema);
+var Item =  mongoose.model('Item',itemSchema);
 
-module.exports = mongoose.model('Inventory',inventorySchema);
+var Inventory = mongoose.model('Inventory',inventorySchema);
 
-module.exports = mongoose.model('Logs',logSchema);
+var Logs = mongoose.model('Logs',logSchema);
 
-module.exports = mongoose.model('Vendors',vendorSchema);
+var Vendors = mongoose.model('Vendors',vendorSchema);
 

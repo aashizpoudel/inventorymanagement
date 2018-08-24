@@ -1,4 +1,5 @@
-var Item = require('./../models/item');
+var mongoose = require('mongoose');
+var Item = mongoose.model('Item');
 
 module.exports = function(router){
     router.use(function(req, res, next) {
@@ -22,7 +23,7 @@ module.exports = function(router){
         }).then((s)=>{
             console.log(s);
            // console.log('posted');
-            res.send("posted!!");
+            res.render("create_item_form",{content:{type:'success',message:'Successfully created !!'}});
         }).catch((e)=>{
            
         })
@@ -35,7 +36,7 @@ module.exports = function(router){
                 res.send(err);
             } 
             
-            res.json(inventoryItems);
+            res.render('list_item',{contents:inventoryItems});
         });
     })
 }
