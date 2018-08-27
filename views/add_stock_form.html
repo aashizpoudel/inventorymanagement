@@ -11,19 +11,8 @@
                                 <label for="text-input" class=" form-control-label">Select Product</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                    <select style="display: none;" data-placeholder="Choose a Product..." class="standardSelect" tabindex="-1">
-                                            <option value=""></option>
-                                            <option value="United States">United States</option>
-                                            <option value="United Kingdom">United Kingdom</option>
-                                            <option value="Afghanistan">Afghanistan</option>
-                                            <option value="Aland Islands">Aland Islands</option>
-                                            <option value="Albania">Albania</option>
-                                            <option value="Algeria">Algeria</option>
-                                            <option value="American Samoa">American Samoa</option>
-                                            <option value="Andorra">Andorra</option>
-                                            <option value="Angola">Angola</option>
-                                            <option value="Anguilla">Anguilla</option>
-                                            <option value="Antarctica">Antarctica</option>
+                                    <select  data-placeholder="Choose a Product..." id='select-product' class="standardSelect" tabindex="-1">
+                                            
                                         </select>
                             </div>
                    
@@ -85,3 +74,35 @@
        
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
+<script>
+    
+    $('#select-product').selectize({
+    valueField: 'title',
+    labelField: 'title',
+    searchField: 'title',
+    options: [],
+    create: false,
+    render: {
+        option: function(item, escape) {
+            
+
+            return item.productName;
+        }
+    },
+    load: function(query, callback) {
+        if (!query.length) return callback();
+        $.ajax({
+            url: '/api/products/search/'+query,
+            type: 'GET',
+            dataType: 'jsonp',
+            error: function() {
+                callback();
+            },
+            success: function(res) {
+                callback(res);
+            }
+        });
+    }
+});
+</script>

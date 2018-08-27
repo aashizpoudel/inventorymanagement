@@ -39,4 +39,9 @@ module.exports = function(router){
             res.render('list_item',{contents:inventoryItems});
         });
     })
+    
+    router.route('/stock/add').get(function(req,res){
+        res.render('add_stock_form');
+    });
+    
 }

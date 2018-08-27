@@ -1,0 +1,23 @@
+<div class='row p-3'>
+     {{# each contents }}
+    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mx-auto d-block">
+                                    <img class="rounded-circle mx-auto d-block" src="/images/item_default.png" alt="Item Default Image">
+                                    <h3 class="text-sm-center mt-2 mb-1 p-2">{{this.productName}}</h5>
+                                    <hr/>
+                                    <div class="description p-1"><p> {{this.desc}}</p></div>
+                                </div>
+                                <hr>
+                                <div class="card-text text-sm-center">
+                                   <div class='price_tag'>Price: <span> {{this.cost}} per {{this.uom}} </span></div>
+                                   <div class='stock'>In Stock <span> {{this.currentStock}}  {{this.uom}} </span></div>
+                                </div>
+                            </div>
+                        </div>
+    </div>
+     {{/each}}
+        
+    
+</div>
