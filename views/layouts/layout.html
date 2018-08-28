@@ -1,7 +1,10 @@
 <html>
 
 <!--include head.html -->
-{{> head}}
+<head>
+    {{> meta}}
+</head>
+
 <body>
     <!-- include left-panel -->
     {{> left_panel}}
@@ -12,8 +15,16 @@
         <!-- include breadcrumbs-->
 
         <div class='content mt-3'>
+            <div class='animated fadeIn'>
             <!-- include components -->
-            {{{body}}}
+            <div class='row'>
+                <div class='col-md-12'>
+                    {{{body}}}
+                </div>
+            </div>
+            
+            
+            </div>
         </div>
     </div>
 

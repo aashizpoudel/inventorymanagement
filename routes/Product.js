@@ -10,7 +10,7 @@ module.exports = function(router){
 		next(); 	 
     });
     
-    router.route('/products/create')
+    router.route('/product/create')
     .get(function(req,res){
         res.render('create_product_form')
     })
@@ -32,7 +32,7 @@ module.exports = function(router){
         
     });
 
-    router.route('/products/list').get(function(req,res){
+    router.route('/product/all').get(function(req,res){
         Product.find(function(err, inventoryItems) {
             if (err) {
                 res.send(err);
@@ -52,7 +52,7 @@ module.exports = function(router){
     });
     
     
-    router.route('/stocks/add').get(function(req,res){
+    router.route('/product/add').get(function(req,res){
         res.render('add_stock_form');
     });
     
