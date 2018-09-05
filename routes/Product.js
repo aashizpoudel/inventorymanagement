@@ -12,7 +12,7 @@ module.exports = function(router){
     
     router.route('/product/create')
     .get(function(req,res){
-        res.render('create_product_form')
+        res.render('pages/create_product')
     })
     .post(function(req,res){
         // console.log(req.body);
@@ -25,9 +25,10 @@ module.exports = function(router){
         }).then((s)=>{
             // console.log(s);
            // console.log('posted');
-            res.render("create_product_form",{content:{type:'success',message:'Successfully created !!'}});
+            res.render("pages/create_product",{content:{type:'success',message:'Successfully created !!'}});
         }).catch((e)=>{
-           
+        res.render("pages/create_product",{content:{type:'error',message:e}});
+
         })
         
     });
@@ -38,7 +39,7 @@ module.exports = function(router){
                 res.send(err);
             } 
             
-            res.render('list_products',{contents:inventoryItems});
+            res.render('pages/list_products.html',{contents:inventoryItems});
         });
     })
     

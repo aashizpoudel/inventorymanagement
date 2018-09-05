@@ -1,0 +1,56 @@
+[
+  {
+    "_id": "5b8eb0ef66a5c0fc1e1ffc04",
+    "productName": "Terrell Greer",
+    "desc": "Esse id anim aute occaecat nisi. Nulla mollit pariatur culpa tempor do. Excepteur pariatur duis fugiat commodo magna laborum in ut sit. Ex eiusmod laboris voluptate aliquip dolore culpa ut amet eu anim cupidatat exercitation. Magna ea magna eu fugiat commodo deserunt occaecat et nisi pariatur proident qui mollit commodo. Aute adipisicing mollit voluptate aliqua velit ullamco commodo magna consequat veniam eiusmod incididunt amet. Veniam Lorem amet deserunt et est.\r\n",
+    "uom": "piece",
+    "cost": 102,
+    "currentStock": 327,
+    "__v": 0
+  },
+  {
+    "_id": "5b8eb0efb72ef3729be49b27",
+    "productName": "Alissa Allison",
+    "desc": "Fugiat Lorem consectetur anim sunt eu incididunt ad. Minim qui nisi sint ad elit qui culpa. Id magna consequat ex reprehenderit mollit ullamco velit magna voluptate velit laboris magna dolor. Enim amet deserunt aliqua culpa labore culpa voluptate ea excepteur laborum nisi. Eiusmod dolore et commodo laborum laboris consectetur proident excepteur deserunt. Do commodo nisi proident adipisicing mollit ipsum incididunt aute anim ad amet sit sunt in.\r\n",
+    "uom": "piece",
+    "cost": 891,
+    "currentStock": 486,
+    "__v": 0
+  },
+  {
+    "_id": "5b8eb0ef8ff7557b0e35215d",
+    "productName": "Emilia Turner",
+    "desc": "Ipsum ad aliquip mollit excepteur fugiat nulla exercitation labore. Eiusmod velit fugiat voluptate laborum anim proident adipisicing adipisicing laboris non labore nisi consectetur. Commodo tempor ut velit reprehenderit culpa culpa sint non. Consequat reprehenderit et voluptate adipisicing elit proident Lorem ad enim consectetur ea cupidatat labore culpa.\r\n",
+    "uom": "piece",
+    "cost": 799,
+    "currentStock": 532,
+    "__v": 0
+  },
+  {
+    "_id": "5b8eb0ef309adce5c49daa9e",
+    "productName": "Jeanne Tanner",
+    "desc": "Velit mollit irure exercitation sunt adipisicing aliqua duis non. Id ullamco Lorem non qui est ad laboris voluptate dolore. Mollit tempor consectetur cillum ea exercitation nulla. Ad labore sunt esse sint pariatur Lorem elit deserunt sint eu eiusmod quis. Ullamco incididunt cupidatat ullamco ut quis culpa. Officia pariatur aliqua minim et enim amet officia voluptate.\r\n",
+    "uom": "piece",
+    "cost": 481,
+    "currentStock": 388,
+    "__v": 0
+  },
+  {
+    "_id": "5b8eb0ef7108a0328a510955",
+    "productName": "Reynolds Newman",
+    "desc": "Exercitation ea culpa laboris sunt consectetur eu culpa ex eu ipsum eiusmod consectetur velit. Proident exercitation amet sunt fugiat. Id cupidatat velit laborum cupidatat nostrud.\r\n",
+    "uom": "piece",
+    "cost": 419,
+    "currentStock": 770,
+    "__v": 0
+  },
+  {
+    "_id": "5b8eb0efcfd3464740e98297",
+    "productName": "Janette Dominguez",
+    "desc": "Occaecat in commodo minim pariatur ex ad veniam sint id. Pariatur reprehenderit aliqua ea velit ullamco tempor elit exercitation adipisicing esse sit. Cupidatat pariatur velit ad consectetur voluptate commodo occaecat voluptate velit eiusmod ut ad.\r\n",
+    "uom": "piece",
+    "cost": 116,
+    "currentStock": 979,
+    "__v": 0
+  }
+]

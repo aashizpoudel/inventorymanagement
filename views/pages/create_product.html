@@ -1,0 +1,34 @@
+<html>
+
+<!--include head.html -->
+<head>
+    <% include ../partials/meta.html %>
+</head>
+
+<body>
+    <!-- include left-panel -->
+    <% include ../partials/left_panel.html %>
+
+    <div id='right-panel' class='right-panel'>
+        <!--include header.html-->
+        <% include ../partials/header.html %>
+        <!-- include breadcrumbs-->
+
+        <div class='content mt-3'>
+            <div class='animated fadeIn'>
+            <!-- include components -->
+            <div class='row'>
+                <div class='col-md-12'>
+                    <% include ../components/create_product_form.html %>
+                </div>
+            </div>
+            
+            
+            </div>
+        </div>
+    </div>
+
+    <% include ../partials/scripts.html %>
+    <!-- include scripts -->
+</body>
+</html>

@@ -76,30 +76,35 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
 <script>
-    
+    var currentRequest = null ;
     $('#select-product').selectize({
     valueField: 'title',
     labelField: 'title',
     searchField: 'title',
     options: [],
-    create: false,
+    create: true,
     render: {
         option: function(item, escape) {
             
-
-            return item.productName;
+            console.log(item);
+            return '<p>'+item.productName+'</p>';
         }
     },
     load: function(query, callback) {
         if (!query.length) return callback();
-        $.ajax({
+        currentRequest = $.ajax({
             url: '/api/products/search/'+query,
             type: 'GET',
-            dataType: 'jsonp',
+            beforeSend : function()    {           
+            if(currentRequest != null) {
+            currentRequest.abort();
+                }
+            },
             error: function() {
                 callback();
             },
             success: function(res) {
+                console.log(res);
                 callback(res);
             }
         });
