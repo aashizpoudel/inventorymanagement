@@ -12,6 +12,7 @@
                           <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" style="width: 396.2px;" aria-label="Units: activate to sort column ascending">Type of Unit</th>
                           <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" style="width: 177.2px;" aria-label="Cost per Unit: activate to sort column ascending">Cost per unit</th>
                           <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" style="width: 141px;" aria-label="Available Stock: activate to sort column ascending">Available Stock</th>
+                          <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" style="width: 141px;" aria-label="Available Stock: activate to sort column ascending">Actions</th>
                           </tr>
                     </thead>
                     <tbody>
@@ -21,6 +22,9 @@
                         <td><%=content.uom %></td>
                         <td><%=content.cost %></td>
                         <td><%=content.currentStock %></td>
+                        <td><a class='btn btn-outline-primary m-1' href='/product/add/<%=content._id%>'>Add Stock</a>
+                        <a class='btn btn-outline-primary m-1' href='/product/checkout/<%=content._id%>'>Remove Stock</a>
+                        </td>
                       </tr>
                       <% }); %>
                       </tbody>

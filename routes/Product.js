@@ -1,7 +1,7 @@
 // var mongoose = require('mongoose');
 
 var Product = require('./../models/Product');
-
+var Record = require('./../models/Record');
 module.exports = function(router){
     router.use(function(req, res, next) {
 		//  This console logging function can be saved to a file later.  
@@ -53,8 +53,10 @@ module.exports = function(router){
     });
     
     
-    router.route('/product/add').get(function(req,res){
-        res.render('add_stock_form');
+    router.route('/product/add/:id').get(function(req,res){
+        Product.findById(req.params.id)
+        .then(products =>{res.render('pages/add_product.html',{contents:products});})
+        
     });
     
     router.route('/api/products/search/:searchtext').get(function(req,res){
@@ -87,6 +89,7 @@ module.exports = function(router){
                 else if(req.body.action=='subtract')
                 product.currentStock -=toAdd;
                 
+                createRecord({type:'addStock',productId:product._id,quantity:toAdd,remarks:"Added By Api"})
                 product.save();
                 res.send({message:"Successfully added",content:product});
            
@@ -100,4 +103,9 @@ module.exports = function(router){
             })
         })
     
+}
+
+
+function createRecord(payload){
+    Record.create(payload);
 }
