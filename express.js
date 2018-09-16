@@ -34,6 +34,8 @@ app.get('/',function(req,res){
 
 var router = express.Router();         
 require('./routes/Product')(router); // configure routes for the inventory model
+require('./routes/Record')(router); // configure routes for the inventory model
+
 app.use('/', router);
 
 

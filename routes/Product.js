@@ -57,55 +57,47 @@ module.exports = function(router){
         Product.findById(req.params.id)
         .then(products =>{res.render('pages/add_product.html',{contents:products});})
         
-    });
-    
-    router.route('/api/products/search/:searchtext').get(function(req,res){
-        Product.find({
-            'productName': new RegExp(req.params.searchtext, 'i') } ,'productName')
-  .then(products => {console.log(products);
-  res.send(products);}
-  )
-  .catch(e => console.error(e));
-    })
-    
-    
-    router.route('/api/product/:id').get(function(req,res){
-        Product.findById(req.params.id)
-  .then(products => {console.log(products);
-  res.send(products);}
-  )
-  .catch(e => console.error(e));
     })
     .post(function(req,res){
+       Product.findById(req.params.id).then(products=>{
+        //   console.log(req.body);
+        var toAdd = parseInt(req.body.toAdd);
+           products.currentStock += toAdd;
+           products.save();
+           createRecord({type:'add',productId:products._id,quantity:toAdd,remarks:"Added By Api"})
+                
+           res.render('pages/add_product.html',{contents:products,message:'Successfully Added'});
+       }).catch(err =>{
+           res.send('error occured!!');
+       })
+    });
+    
+    
+        router.route('/product/checkout/:id').get(function(req,res){
+        Product.findById(req.params.id)
+        .then(products =>{res.render('pages/remove_product.html',{contents:products});})
         
     })
-    .put(function(req,res){
-        Product.findById(req.params.id).then(product=>{
-        //    if(req.body.action=='add'){
-                var toAdd = parseInt(req.body.payload) ;
+    .post(function(req,res){
+       Product.findById(req.params.id).then(products=>{
+        var toRemove = parseInt(req.body.toRemove);
+
+        //   console.log(req.body);
+        if(toRemove >= products.currentStock){
+            throw Error("Can't do it");
+        }
+           products.currentStock -= toRemove;
+           products.save();
+           createRecord({type:'checkout',productId:products._id,quantity:toRemove,remarks:"Removed By Api"})
                 
-                if(req.body.action =='add')      
-                product.currentStock += toAdd;
-                else if(req.body.action=='subtract')
-                product.currentStock -=toAdd;
-                
-                createRecord({type:'addStock',productId:product._id,quantity:toAdd,remarks:"Added By Api"})
-                product.save();
-                res.send({message:"Successfully added",content:product});
-           
-            
-        })
-        
-        
-    }).delete(function(req,res){
-            Product.findByIdAndRemove(req.params.id).then(product=>{
-                res.send({message:'Successfully Deleted!!',content:product});
-            })
-        })
+           res.render('pages/remove_product.html',{contents:products,message:'Successfully Removed'});
+       }).catch(err =>{
+           res.send('error occured!!');
+       })
+    });
     
-}
-
-
+} 
+   
 function createRecord(payload){
     Record.create(payload);
 }
