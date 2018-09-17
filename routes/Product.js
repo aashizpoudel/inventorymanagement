@@ -1,5 +1,5 @@
 // var mongoose = require('mongoose');
-
+var url =require('url');
 var Product = require('./../models/Product');
 var Record = require('./../models/Record');
 module.exports = function(router){
@@ -34,13 +34,15 @@ module.exports = function(router){
     });
 
     router.route('/product/all').get(function(req,res){
-        Product.find(function(err, inventoryItems) {
-            if (err) {
-                res.send(err);
-            } 
-            
-            res.render('pages/list_products.html',{contents:inventoryItems});
-        });
+        Product.paginate({},{
+            page:req.query.page || 1,
+            limit: 10,
+            sort: 'productName'
+        }).then(products=>{
+            return res.render('pages/list_products.html',{...products,url:req});
+        }).catch(err=>{
+            return res.send('error');
+        })
     })
     
     
