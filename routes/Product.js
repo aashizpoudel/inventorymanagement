@@ -43,6 +43,13 @@ module.exports = function(router){
         }).catch(err=>{
             return res.send('error');
         })
+    });
+    router.route('/products/search').get(function(req,res){
+        Product.find({productName:new RegExp(req.query.q)}).lean().then(products=>{
+            return res.render('pages/list_products.html',{docs:products,url:req,total:products.length,page:1,pages:1,searchResult:{text:req.query.q}});
+        }).catch(error=>{
+            return res.send("ERROR");
+        })
     })
     
     

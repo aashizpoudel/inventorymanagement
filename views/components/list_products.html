@@ -5,23 +5,23 @@
     <div class="card-body">
         <div id="bootstrap-data-table_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
             <div class="row">
+                
                 <div class="col-sm-12 col-md-6">
-                    <div class="dataTables_length" id="bootstrap-data-table_length">
-                        <label>Show
-                            <select name="bootstrap-data-table_length" aria-controls="bootstrap-data-table" class="form-control form-control-sm">
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="50">50</option>
-                                <option value="-1">All</option>
-                            </select> entries</label>
+                    <div id="bootstrap-data-table_filter" class="">
+                        <form action="/products/search" method='get'>
+                            <label>Search:
+                                    <input class="form-control form-control-sm" name='q' placeholder="" aria-controls="bootstrap-data-table"
+                                        type="search">
+                                </label>
+                        </form>
+                        
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-6">
-                    <div id="bootstrap-data-table_filter" class="dataTables_filter">
-                        <label>Search:
-                            <input class="form-control form-control-sm" placeholder="" aria-controls="bootstrap-data-table"
-                                type="search">
-                        </label>
+                <div class='col-sm-12 col-md-6'>
+                    <div class=''>
+                        <% if(locals.searchResult){ %>
+                        <h3>Search Result for : <span class='text-muted'><%=locals.searchResult.text %></span> </h3>
+                        <% } %>
                     </div>
                 </div>
             </div>
