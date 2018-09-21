@@ -7,6 +7,6 @@ mongoose.connect(db.url);
 var Product = require('./models/Product');
 
 Product.remove({});
-Product.insertMany(require('./db/db.json')).then(s=>{
+Product.create(require('./db/db.json')).then(s=>{
  console.log('Success!!');   
 });

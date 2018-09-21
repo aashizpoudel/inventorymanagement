@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
-
+const AutoIncrement =require('mongoose-sequence')(mongoose);
 var itemSchema = new mongoose.Schema({
 	productName:{type: String, index:true ,unique:true},
 	desc:String,
@@ -15,5 +15,5 @@ var itemSchema = new mongoose.Schema({
 // },{unique:true})
 
 itemSchema.plugin(mongoosePaginate);
-
+itemSchema.plugin(AutoIncrement,{inc_field:'productId'});
 module.exports = mongoose.model('Product',itemSchema);
