@@ -1,5 +1,6 @@
 
 const productController = require('./../controllers/productscontroller');
+const transactionController = require('./../controllers/transactioncontroller');
 module.exports = function(router){
     router.route("/product/create").get(productController.create);
     router.route("/product/create").post(productController.doCreate);
@@ -12,5 +13,9 @@ module.exports = function(router){
     router.route('/product/all').get(productController.listProducts);
     router.route('/products/search').get(productController.searchProducts);
 
+    router.route('/transaction/create').post(transactionController.create);
+    router.route('/transaction/list').get(transactionController.list);
+
+    // router.route('/api/products/list').get(productController.listJson);
 
 }
