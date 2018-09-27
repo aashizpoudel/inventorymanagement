@@ -1,38 +1,26 @@
-<div class='card-body'>
-    <div class='row justify-content-center'>
-    <div class='from-group col-md-6'>
-        <input class='form-control' type='number' placeholder="Enter a productID" name='productid' />
-        <ul class='list-group'>
-            <li class='list-group-item'>Product Name</li>
-            <li class='list-group-item'>Product Name 2</li>
-            <li class='list-group-item'>Product Name 3</li>
-        </ul>
-    </div>
-    </div>
-    <div class='row justify-content-center'>
-    <div class='mt-4 col-md-9'>
-       <div class='card'>
-            <div class='card-header'>
-                    Cart
-                </div>
-                <div class='card-body'>
-                    <table class='table'>
-                        <thead>
-                            <tr>
-                                <th>sn</th>
-                                <th>productID</th>
-                                <th>product name</th>
-                                <th>unit cost</th>
-                                <th>qty</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-                <div class='card-footer'>
-                    <span>Total Cost: </span>
-                    <button class='btn btn-outline-primary pull-right'>Confirm</button>
-                </div>
-       </div>
-    </div>
+<div class='card-body' id='root'>
+    
 </div>
-</div>
+<script src="/assets/js/react.js"></script>
+
+<!-- <div id='root'></div> -->
+
+<script>
+    var $jq = jQuery.noConflict();
+    function load(res){
+        if(!res[0]._id){
+            return;
+        }
+        $jq('#search').append($jq('<li></li>').addClass('list-group-item')
+        .append(res[0].productName)
+        );
+    }
+    function changeEvent(text){
+        $jq.get("/api/product/"+text,load);
+    }
+    
+    $jq("#inputId").change(function(){
+        console.log('changed!!');
+        changeEvent($jq('#inputId').val());
+    })
+</script>

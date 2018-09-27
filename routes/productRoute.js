@@ -16,6 +16,6 @@ module.exports = function(router){
     router.route('/transaction/create').post(transactionController.create);
     router.route('/transaction/list').get(transactionController.list);
 
-    // router.route('/api/products/list').get(productController.listJson);
+    router.route('/api/product/:id').get(productController.findById);
 
 }
