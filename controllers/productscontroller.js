@@ -123,7 +123,7 @@ productController.searchProducts = function (req, res) {
 }
 
 productController.findById = function(req,res){
-    console.log(req.params.id);
+    // console.log(req.params.id);
     Product.find({productId:req.params.id}).lean().then(products=>{
         return res.send(products);
     }).catch(error=>{

@@ -18,4 +18,5 @@ module.exports = function(router){
 
     router.route('/api/product/:id').get(productController.findById);
 
+    router.route('/api/confirm').post(transactionController.create);
 }
