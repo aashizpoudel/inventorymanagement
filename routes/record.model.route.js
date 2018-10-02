@@ -1,4 +1,4 @@
-var Record = require('./../models/Record');
+var Record = require('./../models/record');
 module.exports = function(router){
     router.use(function(req, res, next) {
 		//  This console logging function can be saved to a file later.  

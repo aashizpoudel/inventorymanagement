@@ -7,17 +7,28 @@
             <div class="row">
                 
                 <div class="col-sm-12 col-md-6">
-                    <div id="bootstrap-data-table_filter" class="">
-                        <form action="/products/search" method='get'>
-                            <label>Search:
-                                    <input class="form-control form-control-sm" name='q' placeholder="" aria-controls="bootstrap-data-table"
+                    <div id="bootstrap-data-table_filter" class="p-2">
+                        <form action="/products/search" class='form-inline' method='get'>
+                            
+                        <input class="form-control form-control-sm" name='q' placeholder="Search by name of product" aria-controls="bootstrap-data-table"
                                         type="search">
-                                </label>
+                                
                         </form>
                         
                     </div>
                 </div>
                 <div class='col-sm-12 col-md-6'>
+                    <div class='p-2'>
+                    <form action="/products/find" class='form-inline' method='get'>
+                            
+                        <input class="form-control form-control-sm" name='q' placeholder="Find by product ID" aria-controls="bootstrap-data-table"
+                                        type="search">
+                                
+                        </form>
+                    </div>
+
+                </div>
+                <div class='row'>
                     <div class=''>
                         <% if(locals.searchResult){ %>
                         <h3>Search Result for : <span class='text-muted'><%=locals.searchResult.text %></span> </h3>
@@ -32,6 +43,9 @@
                         <thead>
                             <tr role="row">
                                 <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" style="width: 240.2px;"
+                                    aria-sort="ascending" aria-label="Product ID: activate to sort column descending">Product ID
+                                </th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" style="width: 240.2px;"
                                     aria-sort="ascending" aria-label="Name: activate to sort column descending">Product Name
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" style="width: 396.2px;" aria-label="Units: activate to sort column ascending">Type of Unit</th>
@@ -44,6 +58,10 @@
                             <% docs.forEach(function(content){ %>
                                 <tr role="row" class="odd">
                                     <td class="sorting_1">
+                                        <%= content.productId %>
+                                    </td>
+                                    <td class="sorting_1">
+
                                         <%= content.productName %>
                                     </td>
                                     <td>

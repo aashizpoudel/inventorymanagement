@@ -11,6 +11,10 @@ var logSchema = new mongoose.Schema({
 }
 );
 
+var anotherSchema = new mongoose.Schema({
+	totalTransactionCost:Number,
+});
+
 // itemSchema.index({
 // 	'productName':1,
 // },{unique:true})

@@ -1,7 +1,7 @@
 
 
-var Product = require('./../models/Product');
-var Record = require('./../models/Record');
+var Product = require('./../models/product');
+var Record = require('./../models/record');
 
 function createRecord(payload) {
     Record.create(payload);
@@ -86,8 +86,10 @@ productController.doAddStock = function (req, res) {
        })
 };
 
-productController.checkoutStock = function (req, res) {
-    res.render('pages/remove_product.html');
+productController.checkoutStock = function (req, res,next) {
+    Product.findById(req.params.id)
+        .then(products =>{res.render('pages/remove_product.html',{contents:products});})
+        .catch(err=>next(err));
 }
 
 productController.addStock = function (req, res) {
@@ -125,11 +127,22 @@ productController.searchProducts = function (req, res) {
 productController.findById = function(req,res){
     // console.log(req.params.id);
     Product.find({productId:req.params.id}).lean().then(products=>{
+        // console.log(products);
         return res.send(products);
     }).catch(error=>{
         return res.send({"error":error});
     })
 };
+
+productController.findProductById = function(req,res){
+    // console.log(req.params.id);
+    Product.find({productId:req.query.q}).lean().then(products=>{
+        return res.render('pages/list_products.html', { docs: products, url: req, total: products.length, page: 1, pages: 1, searchResult: { text: req.query.q } });
+    }).catch(error=>{
+        return res.send({"error":error});
+    })
+};
+
 
 
 module.exports = productController;
