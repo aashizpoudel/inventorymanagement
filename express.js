@@ -27,7 +27,7 @@ app.use(express.static(__dirname + "/public"));
 // app.use(cookieParser());
 app.use(session({secret:"this is secret",
 
-    store: new FileStore(options),
+    store: new FileStore(),
 }));
 
 app.use(bodyParser.urlencoded({
