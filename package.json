@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "node express.js",
-    "dev-start":"nodemon express.js",
+    "dev-start": "nodemon express.js",
     "electron_start": "electron .",
     "express_start": "node express.js"
   },
@@ -20,15 +20,14 @@
     "express-session": "^1.15.6",
     "mongoose": "^5.2.3",
     "mongoose-paginate": "^5.0.3",
-    "mongoose-sequence": "^4.0.1"
-    
+    "mongoose-sequence": "^4.0.1",
+    "session-file-store": "^1.2.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.4",
     "morgan": "^1.9.1"
   },
-  "engines": { 
-      "node": "10.11.0" 
-   }
-
+  "engines": {
+    "node": "10.11.0"
+  }
 }

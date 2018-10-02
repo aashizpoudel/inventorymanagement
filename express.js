@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const logger = require('morgan');
+var FileStore = require('session-file-store')(session);
 
 // const exphbs = require("express-handlebars");
 
@@ -21,10 +22,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('.html', require('ejs').__express);
 app.set('view engine', '.html');
 
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(express.static(__dirname + "/public"));
 // app.use(cookieParser());
-app.use(session({secret:"this is secret"}));
+app.use(session({secret:"this is secret",
+
+    store: new FileStore(options),
+}));
 
 app.use(bodyParser.urlencoded({
     extended: false
