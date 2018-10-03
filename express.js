@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const logger = require('morgan');
+
 var FileStore = require('session-file-store')(session);
 
 // const exphbs = require("express-handlebars");
