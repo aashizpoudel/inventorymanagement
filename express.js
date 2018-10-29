@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 var FileStore = require('session-file-store')(session);
+var axios= require('axios');
 
 // const exphbs = require("express-handlebars");
 
@@ -48,6 +49,16 @@ require('./routes/user.model.route')(router);
 app.use('/', router);
 app.get('/',homeController.home);
 app.get('/logout',homeController.logout);
+
+app.get('/dictionary/:word',function(req,res){
+	word = req.params.word;
+	const url =`https://www.vocabulary.com/dictionary/definition.ajax?search=${word}&lang=en`;
+	axios.get(url).then(r=>{
+		res.send(r.data);
+	}).catch(e=>{
+		res.send("noresults"+e.message);
+	})
+})
 
 
 

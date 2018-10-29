@@ -2,6 +2,9 @@ var User  = require('./../models/user');
 
 
 var auth = function(req,res,next){
+	if(req.path.includes('/dictionary')){
+		return next();
+	}
 
 	if(req.session.authenticated){
 		if(req.path == '/login'){
