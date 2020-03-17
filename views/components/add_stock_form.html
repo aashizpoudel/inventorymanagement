@@ -1,0 +1,110 @@
+
+   <div class='alerts'>
+       <% if(locals.message){ %>
+            <div class="sufee-alert alert with-close alert-primary alert-dismissible fade show">
+                                            <span class="badge badge-pill badge-primary"></span>
+                                               You successfully added stock to product!!
+                                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+        <% } %>
+        
+        </div>
+        
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <strong class="card-title">Add Stock Form</strong>
+        </div>
+        <div class="card-body">
+            <form action="" method="post" enctype="application/x-www-form-urlencoded" class="form-horizontal">
+
+             
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="disabled-input" class=" form-control-label">Product ID</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input id="disabled-input" nae="disabled-input" value='<%=contents._id%>' placeholder="Choose Product first" disabled="" class="form-control"
+                            type="text">
+                    </div>
+                </div>
+
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Product Name</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input id="text-input" disabled='true' nme="text-input" value='<%=contents.productName%>' placeholder="Choose Product first" class="form-control" type="text">
+                    </div>
+                </div>
+                
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Unit Type</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input id="text-input" disabled='true' ame="text-input" value='<%=contents.uom%>' placeholder="Choose Product first" class="form-control" type="text">
+                    </div>
+                </div>
+                
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Cost per unit</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input id="text-input" disabled='true' ame="text-input" value='<%=contents.cost%>' placeholder="Choose Product first" class="form-control" type="text">
+                    </div>
+                </div>
+                
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Current Stock</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input id="text-input" disabled='true' ame="text-input" value='<%=contents.currentStock%>' placeholder="Choose Product first" class="form-control" type="text">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Add Quantity</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input  name="toAdd"  placeholder="Amount of quantity to be added" class="form-control" type="number">
+                    </div>
+                </div>
+
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="textarea-input" class=" form-control-label">Description</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <textarea ame="textarea-input" disabled='true' id="textarea-input" rows="5" class="form-control"><%=contents.desc%></textarea>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                        <div class="col col-md-3">
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <input type="submit" class='btn btn-primary' name="submit" value='Add'>
+                        </div>
+                    </div>
+                
+
+            </form>
+        </div>
+       
+    </div>
+</div>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>-->
+<script>
+//   function fireRequest(payload){
+//       $.ajax({url:"/api/product/<%=contents._id%>", type:'PUT', data:payload});
+//   }
+</script>

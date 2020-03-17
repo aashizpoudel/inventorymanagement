@@ -1,0 +1,99 @@
+
+   <div class='alerts'>
+       <% if(locals.content && locals.content.type=='success'){ %>
+            <div class="sufee-alert alert with-close alert-primary alert-dismissible fade show">
+                                            <span class="badge badge-pill badge-primary">{{content.type}}</span>
+                                               You successfully created an product!!
+                                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+        <% } %>
+        <% if(locals.content && locals.content.type=='error'){ %>
+            <div class="sufee-alert alert with-close alert-error alert-dismissible fade show">
+                                            <span class="badge badge-pill badge-error">error</span>
+                                               Error has occured!!
+                                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+        <% } %>
+        </div>
+        
+
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <strong class="card-title">Create Product Form</strong>
+        </div>
+        
+     
+        <div class="card-body">
+            <form action="" method="post" enctype="application/x-www-form-urlencoded" class="form-horizontal">
+
+                
+
+              
+
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Product Name</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input id="text-input" name="product_name" required placeholder="Enter Product Name" class="form-control" type="text">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Unit Type</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input id="text-input" name="unit_type" required placeholder="Type of unit" class="form-control" type="text">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="cost" class=" form-control-label">Per Unit Cost</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input id="text-input" name="unit_cost" required placeholder="Per Unit Cost" class="form-control" type="number">
+                    </div>
+                </div>
+                
+                 <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="initial_stock"  class=" form-control-label">Initial Stock</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input id="text-input" name="initial_stock" required placeholder="Initital no of units of this product in stock" value='100' class="form-control" type="number">
+                    </div>
+                </div>
+
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="description" class=" form-control-label">Description</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <textarea name="description" id="product_description" rows="5" placeholder="Enter Description" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                        <div class="col col-md-3">
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <input type="submit" class='btn btn-primary' name="submit" value='Create'>
+                        </div>
+                    </div>
+                
+
+            </form>
+        </div>
+       
+    </div>
+</div>

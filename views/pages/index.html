@@ -1,0 +1,144 @@
+<html>
+
+<!--include head.html -->
+<head>
+    <% include ../partials/meta.html %>
+</head>
+
+<body>
+    <!-- include left-panel -->
+    <% include ../partials/left_panel.html %>
+
+    <div id='right-panel' class='right-panel'>
+        <!--include header.html-->
+        <% include ../partials/header.html %>
+        <!-- include breadcrumbs-->
+
+        <div class='content mt-3'>
+            <div class='animated fadeIn'>
+            <!-- include components -->
+            <div class='row'>
+                <div class='col-md-12'>
+                    <div class='card'>
+                        <div class='card-body border rounded p-3'>
+                             <div class='row justify-content-center'>
+                                <div class='col-md-4'>
+                                    <div class='border p-4 bg-white shadow-lg rounded text-center'>
+                            <strong>Total sales last 24 hrs</strong>
+                            <p class='counter'>4000</p>
+                        </div>
+                                </div>
+                                <div class='col-md-4'>
+                                    <div class='border p-4 bg-white shadow-lg rounded text-center'>
+                            <strong>Total sales this week</strong>
+                            <p class='counter'>4000</p>
+                        </div>
+                                </div>
+
+                                <div class='col-md-4'>
+                                    <div class='border p-4 bg-white shadow-lg rounded text-center'>
+                            <strong>All time total sales</strong>
+                            <p class='counter'>Rs <%= locals.allTimeCost %></p>
+                        </div>
+                                </div>
+
+                            </div>
+
+                                <div class='row justify-content-center p-4'>
+                                <div class='col'>
+
+                                    <div class='card'>
+                                        <div class='card-header'><strong>Last Transactions</strong></div>
+                                        <div class='card-body'>
+                                            <table class='table table-bordered  table-hover'><thead>
+                                                <tr>
+                                                    <th>List of productIDs</th>
+                                                    <th>Total Amount Received</th>
+                                                    <th>Date and Time</th>
+                                                    
+                                                    <th>Actions</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody style='max-height: 500px,'>
+                                                <% for(item of lastTransactions){ %>
+                                                    <tr>
+
+                                                        <td><%  var iss = item.items ; for(i of iss){ %>
+                                                            <%=i.itemId%>,
+                                                            <%}%>
+                                                        </td>
+                                                       
+                                                        
+                                                        <td>Rs <%= item.costAfterDiscount %></td>
+                                                        <td><%= item._id.getTimestamp() %></td>
+                                                        <td><a class='btn btn-outline-primary' href='/transaction/view/<%=item._id %>'>View full detail</a></td>
+                                                    </tr>
+                                                <% } %>
+                                            </tbody>
+
+                                        </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            <div class='row justify-content-center p-4'>
+                                <div class='col'>
+
+                                    <div class='card'>
+                                        <div class='card-header'><strong>Products with low stock</strong></div>
+                                        <div class='card-body'>
+                                            <table class='table table-bordered table-striped table-hover'><thead>
+                                                <tr>
+                                                    <th>productId</th>
+                                                    <th>productName</th>
+                                                    <th>costPerUnit</th>
+                                                    <th>unitOfMeasurement</th>
+                                                    <th>currentStock</th>
+                                                    <th>Actions</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody style='max-height: 500px,'>
+                                                <% for(item of lowStock){ %>
+                                                    <tr>
+                                                        <td><%= item.productId %></td>
+                                                        <td><%= item.productName %></td>
+                                                        <td><%= item.cost %></td>
+                                                        <td><%= item.uom %></td>
+                                                        <td><%= item.currentStock %></td>
+                                                        <td><a class='btn btn-outline-primary' href='/product/add/<%=item._id %>'>Add to Stock</a></td>
+                                                    </tr>
+                                                <% } %>
+                                            </tbody>
+
+                                        </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                        
+                            </div>
+
+
+                    </div></div>
+                </div>
+            </div>
+            
+            
+            </div>
+        </div>
+    </div>
+
+    <% include ../partials/scripts.html %>
+    <!-- include scripts -->
+</body>
+</html>
